@@ -1,0 +1,139 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication1.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <link href="css/coin-slider.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/coin-slider.min.js"></script>
+    <script src="js/cufon-titillium-250.js"></script>
+    <script src="js/cufon-yui.js"></script>
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="main">
+            <div class="header">
+                <div class="header_resize">
+                    <div class="menu_nav">
+                        <ul>
+                            <li class="active"><a href="Webform1.aspx"><span>Home Page</span></a></li>
+                            <li><a href="Webform1.aspx"><span>About Us</span></a></li>
+                            <li><a href="Webform1.aspx"><span>Blog</span></a></li>
+                            <li>
+                                <asp:LinkButton ID="lb_Login" runat="server" Text="Logın" OnClick="lb_Login_Click"></asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton ID="lb_Admin" runat="server" OnClick="lb_Admin_Click1" Visible="false">Admin</asp:LinkButton></li>
+
+                        </ul>
+                    </div>
+                    <div class="logo">
+                        <h1><a href="Webform1.aspx">My<span>Blog</span> <small>Here We Go</small></a></h1>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="slider">
+                        <%--<div id="coin-slider">
+                            <a href="#">
+                                <img src="images/slide1.jpg" width="960" height="360" alt="" /></a>
+                            <a href="#">
+                                <img src="images/slide2.jpg" width="960" height="360" alt="" /></a>
+                            <a href="#">
+                                <img src="images/slide3.jpg" width="960" height="360" alt="" /></a>
+                        </div>--%>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content_resize">
+                    <div class="mainbar">
+
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+                    <div class="sidebar">
+                        <div class="gadget">
+                            <h2 class="star"><span>Kategoriler</span></h2>
+                            <div class="clr"></div>
+                            <ul class="sb_menu">
+
+                                <asp:Repeater ID="rptKategori" runat="server">
+                                    <ItemTemplate>
+                                        <li><a href="Categories.aspx?Category=<%#Eval("KategoriID")%>"><%#Eval("KategoriAdı")%></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+                            </ul>
+                        </div>
+                        <div class="gadget">
+                            <h2 class="star"><span>Etiketler</span></h2>
+                            <div class="clr"></div>
+                            <ul class="ex_menu">
+
+                                <asp:Repeater ID="rptEtiket" runat="server">
+                                    <ItemTemplate>
+                                        <li><a href="Tags.aspx?Tag=<%#Eval("EtiketId") %>"><%#Eval("EtiketAdı") %></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="fbg">
+                <div class="fbg_resize">
+                    <div class="col c1">
+                        <h2><span>Image</span> Gallery</h2>
+                        <a href="#">
+                            <img width="75" height="75" alt="" class="gal" src="../images/gal1.jpg" /></a> <a href="#">
+                                <img src="../images/gal2.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#">
+                                    <img src="../images/gal3.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#">
+                                        <img src="../images/gal4.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#">
+                                            <img src="../images/gal5.jpg" width="75" height="75" alt="" class="gal" /></a> <a href="#">
+                                                <img src="../images/gal6.jpg" width="75" height="75" alt="" class="gal" /></a>
+                    </div>
+                    <div class="col c2">
+                        <h2><span>Services</span> Overview</h2>
+                        <p>Curabitur sed urna id nunc pulvinar semper. Nunc sit amet tortor sit amet lacus sagittis posuere cursus vitae nunc.Etiam venenatis, turpis at eleifend porta, nisl nulla bibendum justo.</p>
+                        <ul class="fbg_ul">
+                            <li><a href="#">Lorem ipsum dolor labore et dolore.</a></li>
+                            <li><a href="#">Excepteur officia deserunt.</a></li>
+                            <li><a href="#">Integer tellus ipsum tempor sed.</a></li>
+                        </ul>
+                    </div>
+                    <div class="col c3">
+                        <h2><span>Contact</span> Us</h2>
+                        <p>Nullam quam lorem, tristique non vestibulum nec, consectetur in risus. Aliquam a quam vel leo gravida gravida eu porttitor dui.</p>
+                        <p class="contact_info">
+                            <span>Address:</span> 1458 TemplateAccess, USA<br />
+                            <span>Telephone:</span> +123-1234-5678<br />
+                            <span>FAX:</span> +458-4578<br />
+                            <span>Others:</span> +301 - 0125 - 01258<br />
+                            <span>E-mail:</span> <a href="#">mail@yoursitename.com</a>
+                        </p>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer_resize">
+                    <p class="lf">Copyright &copy; <a href="#">Domain Name</a>. All Rights Reserved</p>
+                    <p class="rf">Get More <a target="_blank" href="http://www.free-css.com/">Free CSS Templates</a> By <a target="_blank" href="http://www.dreamtemplate.com/">DreamTemplate</a></p>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
