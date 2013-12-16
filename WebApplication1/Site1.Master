@@ -31,7 +31,8 @@
                             <li>
                                 <asp:LinkButton ID="lb_Login" runat="server" Text="Logın" OnClick="lb_Login_Click"></asp:LinkButton></li>
                             <li>
-                                <asp:LinkButton ID="lb_Admin" runat="server" OnClick="lb_Admin_Click1" Visible="false">Admin</asp:LinkButton></li>
+                                <asp:LinkButton ID="lb_Admin" runat="server"  Visible="false">Admin</asp:LinkButton>
+                            </li>
 
                         </ul>
                     </div>
