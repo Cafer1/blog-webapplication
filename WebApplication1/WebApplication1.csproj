@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\admin.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -73,6 +74,7 @@
     <Content Include="css\jquery-ui-1.10.3.custom.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="General\Admin.aspx" />
+    <Content Include="General\Admin1.aspx" />
     <Content Include="General\Blog.aspx" />
     <Content Include="General\Categories.aspx" />
     <Content Include="General\GridViewDeneme.aspx" />
@@ -130,6 +132,13 @@
     </Compile>
     <Compile Include="General\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="General\Admin1.aspx.cs">
+      <DependentUpon>Admin1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\Admin1.aspx.designer.cs">
+      <DependentUpon>Admin1.aspx</DependentUpon>
     </Compile>
     <Compile Include="General\Blog.aspx.cs">
       <DependentUpon>Blog.aspx</DependentUpon>

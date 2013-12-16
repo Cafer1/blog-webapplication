@@ -31,7 +31,7 @@
                             <li>
                                 <asp:LinkButton ID="lb_Login" runat="server" Text="Logın" OnClick="lb_Login_Click"></asp:LinkButton></li>
                             <li>
-                                <asp:LinkButton ID="lb_Admin" runat="server"  Visible="false">Admin</asp:LinkButton>
+                                <asp:LinkButton ID="lb_Admin" runat="server"  Visible="false" PostBackUrl="~/General/Admin1.aspx">Admin</asp:LinkButton>
                             </li>
 
                         </ul>
