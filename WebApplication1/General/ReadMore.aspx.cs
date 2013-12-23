@@ -31,7 +31,7 @@ namespace WebApplication1
             //rpt_Icerik.DataSource = db.GetDataReader("Select Baslik , Icerik from Makale Where MakaleId =" + a);
             rpt_Icerik.DataSource = db.GetDataTable("Select Baslik , Icerik from Makale Where MakaleId =" + a);
             rpt_Icerik.DataBind();
-            db.OpenConnection().Close();
+            db.CloseConnection();
         }
     }
 }

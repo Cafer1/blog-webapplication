@@ -26,7 +26,7 @@ namespace WebApplication1.General
             DataTable dt = db.GetDataTable("Select * from Yorum");
             GridViewComments.DataSource = dt;
             GridViewComments.DataBind();
-            db.OpenConnection().Close();
+            db.CloseConnection();
             return dt;
         }
 
@@ -46,7 +46,7 @@ namespace WebApplication1.General
             DatabaseMethods db = new DatabaseMethods();
             db.OpenConnection();
             db.Update("UPDATE Yorum SET Onay=1 WHERE YorumId = " + basID + ";");
-            db.OpenConnection().Close();
+            db.CloseConnection();
             //Response.Redirect("GridViewDeneme.aspx");
             GetComments();
         }
@@ -57,7 +57,7 @@ namespace WebApplication1.General
             DatabaseMethods db = new DatabaseMethods();
             db.OpenConnection();
             db.Delete("Delete from Yorum Where YorumId = " + basID + ";");
-            db.OpenConnection().Close();
+            db.CloseConnection();
             //Response.Redirect("GridViewDeneme.aspx");
             GetComments();
         }

@@ -4,12 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <title>Master Page</title>
     <link href="../css/admin.css" rel="stylesheet" />
-    <title></title>
+    <link href="../css/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.js"></script>
 </head>
-<form id="form1" runat="server">
-    <body>
-
+<body>
+    <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <div id="verymaindiv">
@@ -51,13 +53,16 @@
             </section>
 
             <nav class="vertical_menu">
-                <ul>
-                    <li>Comments
+                <ul id="menu">
+                    <li><a href="."> Create Entry </a></li>
+                    <li class="openable"><a href="."> Manage Comments </a>
+                        <ul>
+                            <li><a href="."> All Comments </a></li>
+                            <li><a href="."> Unapproved Comments </a></li>
+                        </ul>
                     </li>
-                    <li>Topics
-                    </li>
-                    <li>Tags
-                    </li>
+                    <li><a href="."> Topics </a></li>
+                    <li><a href="."> Tags </a></li>
                 </ul>
             </nav>
 
@@ -66,6 +71,6 @@
             </footer>
 
         </div>
-</form>
+    </form>
 </body>
 </html>

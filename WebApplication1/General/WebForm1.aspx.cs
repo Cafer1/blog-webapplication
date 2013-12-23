@@ -62,6 +62,7 @@ namespace WebApplication1
 
             rptMakaleOzet.DataSource = ds.Tables[0];
             rptMakaleOzet.DataBind();
+            db.CloseConnection();
             return ds.Tables[0];
         }
 
@@ -72,7 +73,7 @@ namespace WebApplication1
             DataList dl1 = (DataList)e.Item.FindControl("dl_Tags");
             dl1.DataSource = db.GetDataTable("SELECT e.EtiketAd FROM Makale m , MakaleEtiket me , Etiket e WHERE me.MakaleId = m.MakaleId AND me.EtiketId = e.EtiketId AND m.MakaleId = " + DataBinder.Eval(e.Item.DataItem, "MakaleId").ToString());
             dl1.DataBind();
-            db.OpenConnection().Close();
+            db.CloseConnection();
         }
     }
 }

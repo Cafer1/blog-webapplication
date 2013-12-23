@@ -23,6 +23,12 @@ namespace WebApplication1
             return cnn;
         }
 
+        public void CloseConnection() 
+        {
+            SqlConnection cnn = this.OpenConnection();
+            cnn.Close();
+        }
+
         public int Insert(string sqlQuery)
         {
             SqlConnection cnn = this.OpenConnection();

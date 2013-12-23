@@ -67,6 +67,7 @@ namespace WebApplication1.General
             DataSet ds = db.GetDataset("SELECT m.MakaleId , m.Baslik , m.Tarih , m.Ozet , Count(y.MakaleID) as Yorum_Count , e.EtiketAd FROM Makale m LEFT JOIN Yorum y ON m.MakaleId = y.MakaleID , Etiket e , MakaleEtiket me WHERE m.MakaleId = me.MakaleId AND me.EtiketId = e.EtiketId AND e.EtiketId = " + tag_id_int +" GROUP BY m.MakaleID , Baslik , m.Tarih , Ozet , e.EtiketAd  ORDER BY m.Tarih DESC");
             rptMakaleOzet_Tag.DataSource = ds.Tables[0];
             rptMakaleOzet_Tag.DataBind();
+            db.CloseConnection();
             return ds.Tables[0];
         }
 

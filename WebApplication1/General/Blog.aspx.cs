@@ -73,7 +73,7 @@ namespace WebApplication1.General
             DataTable dt = db.GetDataTable("SELECT e.EtiketAd FROM Makale m , MakaleEtiket me , Etiket e WHERE me.MakaleId = m.MakaleId AND me.EtiketId = e.EtiketId AND m.MakaleId = " + makale_id);
             dl_Tags.DataSource = dt;
             dl_Tags.DataBind();
-            db.OpenConnection().Close();
+            db.CloseConnection();
         }
 
         string GetCommentCount() 
@@ -81,7 +81,7 @@ namespace WebApplication1.General
             DatabaseMethods db = new DatabaseMethods();
             db.OpenConnection();
             DataTable dt = db.GetDataTable("Select COUNT(y.MakaleID) as Comment_Count from Yorum y where y.MakaleID = " + makale_id);
-            db.OpenConnection().Close();
+            db.CloseConnection();
             return dt.Rows[0]["Comment_Count"].ToString();  
         }
 
@@ -92,7 +92,7 @@ namespace WebApplication1.General
             DataTable dt = db.GetDataTable("Select * from Makale Where MakaleId =" + makale_id);
             rpt_Makale.DataSource = dt;
             rpt_Makale.DataBind();
-            db.OpenConnection().Close();
+            db.CloseConnection();
         }
 
         DataTable GetComments(String id)
@@ -102,7 +102,7 @@ namespace WebApplication1.General
             DataTable dt = db.GetDataTable("Select y.YorumId ,  y.YorumIcerik , y.MakaleID , y.Tarih , y.Onay , u.Name from Yorum y , Users u where y.User_id = u.User_Id and y.MakaleId=" + makale_id);
             rpt_Comment.DataSource = dt;
             rpt_Comment.DataBind();
-            db.OpenConnection().Close();
+            db.CloseConnection();
             return dt;
         }
 
@@ -114,7 +114,9 @@ namespace WebApplication1.General
             db.OpenConnection();
             db.Insert("Insert into Yorum (YorumIcerik , MakaleID , User_id , Tarih ) values ('" + yorum + "'," + makale_id + "," + user_id + ",GETDATE())");
             txt_Comment.Text = "";
+            db.CloseConnection();
             Response.Redirect("Blog.aspx?id="+makale_id+"&page="+Session["Comment_Page"].ToString());
+
         }
     }
 }

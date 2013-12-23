@@ -82,6 +82,8 @@
     <Content Include="css\coin-slider.css" />
     <Content Include="css\style.css" />
     <Content Include="General\Tags.aspx" />
+    <Content Include="images\back.png" />
+    <Content Include="images\back1.png" />
     <Content Include="images\onay.png" />
     <Content Include="images\sil.png" />
     <Content Include="images\dot.gif" />
@@ -115,6 +117,7 @@
     <Content Include="js\coin-slider.min.js" />
     <Content Include="js\cufon-titillium-250.js" />
     <Content Include="js\cufon-yui.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\jquery-1.4.2.min.js" />
     <Content Include="js\jquery-1.9.1.js" />
     <Content Include="js\jquery-ui-1.10.3.custom.js" />

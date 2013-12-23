@@ -32,6 +32,7 @@ namespace WebApplication1.General
                             lb_Tags.DataValueField = "EtiketId";
                             lb_Tags.DataBind();
                             ds.Clear();
+                            ds.Dispose();
 
                             ds = db.GetDataset("Select KategoriID , KategoriAd From Kategori");
                             ddl_Category.DataSource = ds;
@@ -39,6 +40,7 @@ namespace WebApplication1.General
                             ddl_Category.DataValueField = "KategoriID";
                             ddl_Category.DataBind();
                             ds.Clear();
+                            ds.Dispose();
                         }
                     }
                 }
@@ -62,7 +64,7 @@ namespace WebApplication1.General
                 db.Insert("Insert into MakaleEtiket values(" + a + "," + item.Value + ")");
             }
             //Response.Redirect("Admin.aspx");
-
+            db.CloseConnection();
         }
 
         protected void btn_right_Click(object sender, EventArgs e)

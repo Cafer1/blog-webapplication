@@ -29,6 +29,7 @@ namespace WebApplication1
                     lbl_Error.Visible = true;
                     lbl_Error.Text = "SQL Connection Error";
                 }
+                db.CloseConnection();
             }
             else
             {
@@ -36,10 +37,11 @@ namespace WebApplication1
                 {
                     lbl_Error.Visible = true;
                     lbl_Error.Text = "Session State Error";
-
+                    db.CloseConnection();
                 }
                 else
                 {
+                    db.CloseConnection();
                     Response.Redirect("WebForm1.aspx");
                 }
             }
@@ -62,6 +64,7 @@ namespace WebApplication1
                     Session["User_id"] = dt.Rows[0]["User_Id"].ToString();
                     Session["Login"] = "1";
                     Session["Admin"] = dt.Rows[0]["Is_Admin"].ToString();
+                    dt.Dispose();
                     Response.Redirect("WebForm1.aspx");
                 }
             }

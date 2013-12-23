@@ -4,22 +4,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    
     <title></title>
-
-    <link href="css/coin-slider.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <script src="js/coin-slider.min.js"></script>
-    <script src="js/cufon-titillium-250.js"></script>
-    <script src="js/cufon-yui.js"></script>
-    <script src="js/jquery-1.4.2.min.js"></script>
     <script src="js/script.js"></script>
-
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script>
+        $(window).load(function () {
+            $(".menu_nav ul li.acilir").hover(function () {
+                $(this).find("ul:hidden").slideDown();
+            }, function () {
+                $(this).find("ul:visible").slideUp();
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-
         <div class="main">
             <div class="header">
                 <div class="header_resize">
@@ -30,8 +33,13 @@
                             <li><a href="Webform1.aspx"><span>Blog</span></a></li>
                             <li>
                                 <asp:LinkButton ID="lb_Login" runat="server" Text="Logın" OnClick="lb_Login_Click"></asp:LinkButton></li>
-                            <li>
-                                <asp:LinkButton ID="lb_Admin" runat="server"  Visible="false" PostBackUrl="~/General/Admin1.aspx">Admin</asp:LinkButton>
+                            <li class="acilir">
+                                <asp:LinkButton ID="lb_Admin" runat="server" Visible="false" PostBackUrl="~/General/Admin1.aspx">Admin</asp:LinkButton>
+                                <ul>
+                                    <li><a href="Admin.aspx">New Entry</a></li>
+                                    <li><a href="GridViewDeneme.aspx">Comments</a></li>
+                                    <li><a>Tags</a></li>
+                                </ul>
                             </li>
 
                         </ul>
